@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+   mongo:
+    image: mongo:4.0
+    container_name: mongo_4_0
+    restart: always
+    volumes:
+      - "./container-data/mongodb_4_0:/data/db"
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+          - app-network
+
+   app:
+     depends_on:
+       - mongo
+     build:
+      context: ./
+      dockerfile: Dockerfile
+     ports:
+       - "8080:8080"
+     restart: always
+     networks:
+      - app-network
+volumes:
+    db_data: {}
+
+networks:
+  app-network:
+    driver: bridge

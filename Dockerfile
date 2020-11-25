@@ -10,7 +10,6 @@ RUN apk --no-cache add ca-certificates
 RUN apk add --no-cache --upgrade bash
 COPY --from=builder /app/sellerapp/bin/scraping ./
 COPY --from=builder /app/sellerapp/bin/saving ./
-# COPY my_wrapper_script.sh my_wrapper_script.sh
 COPY start.sh start.sh
 
 EXPOSE 8080 8081

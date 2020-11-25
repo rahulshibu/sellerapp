@@ -6,7 +6,7 @@
 - Docker
 - Git
 
-The API enviroment variables are hardcoded since only one enviromental variable DB url string.
+The API enviroment variables are hardcoded since only one enviromental variable DB url string.The scrapping service is running in port 8081 and saving service in 8080
 
 ## Instructions
 
